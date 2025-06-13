@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Formation Crypto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Formation Crypto</a></h1>
+    
+  </header>
+<nav class="navbar">
+  <div class="logo">Formation Crypto</div>
+  <ul class="nav-links">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li><a href="debutant.html">Débutant</a></li>
+    <li><a href="pro.html">Pro</a></li>
+    <li><a href="ultime.html">Ultime</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+  <main class="contact-section">
+    <h2>Contactez-nous</h2>
+    <p>Une question ? Un souci ? Remplis le formulaire ci-dessous, on te répond rapidement !</p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required />
+
+      <label for="sujet">Sujet</label>
+      <input type="text" id="sujet" name="sujet" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <div class="contact-info">
+      <h3>Ou directement :</h3>
+      <p><strong>Email :</strong> contact@formation-crypto.fr</p>
+      <p><strong>Instagram :</strong> @formation.crypto</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Formation Crypto – Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
