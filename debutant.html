@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pack Débutant - Formation Crypto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Pack Débutant</h1>
+  <p>Merci pour votre intérêt pour notre formation crypto !</p>
+</header>
+
+<main>
+  <section>
+    <h2>Détails de votre pack</h2>
+    <p id="pack-info">Chargement...</p>
+  </section>
+
+  <section class="form-section">
+    <h2>Informations de facturation</h2>
+    <form id="formulaire" action="#" method="post">
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" required />
+
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required />
+
+      <div class="payment-methods">
+        <p>Nous acceptons :</p>
+        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard">
+        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+      </div>
+
+      <!-- Emplacement du bouton PayPal -->
+      <div id="paypal-button-container" style="margin-top: 20px;"></div>
+    </form>
+  </section>
+</main>
+
+<!-- SDK PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script> <!-- sb = sandbox (test) -->
+
+<script>
+  // Récupère le paramètre duration de l'URL
+  function getParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  const duration = getParam('duration');
+  const prixPacks = {
+    "1": 49,
+    "3": 119,
+    "6": 199
+  };
+
+  const info = document.getElementById('pack-info');
+
+  let prix = 0;
+
+  if (duration && prixPacks[duration]) {
+    prix = prixPacks[duration];
+    info.textContent = `Vous avez choisi une formation de ${duration} mois pour ${prix}€. 
+    Commencez dès maintenant à apprendre le trading crypto !`;
+  } else {
+    info.textContent = "Aucune durée sélectionnée ou invalide.";
+    document.getElementById('paypal-button-container').innerHTML = "<p style='color:red;'>Paiement désactivé</p>";
+  }
+
+  paypal.Buttons({
+    onClick: function(data, actions) {
+      // Vérification des champs
+      const prenom = document.getElementById('prenom').value.trim();
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!prenom || !nom || !email) {
+        alert("Veuillez remplir tous les champs avant de procéder au paiement.");
+        return actions.reject();
+      }
+
+      return actions.resolve();
+    },
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: prix.toString()
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        const prenom = document.getElementById('prenom').value;
+        const email = document.getElementById('email').value;
+        alert(`Merci ${prenom} ! Votre paiement de ${prix}€ a bien été effectué.\nUne confirmation sera envoyée à ${email}.`);
+        // Tu peux ici envoyer les infos à ton backend via fetch/AJAX
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

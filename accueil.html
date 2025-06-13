@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formation Crypto - Lek1ngXRP x Squadir</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>🚀 Formation Crypto: Lek1ngXRP x Squadir</h1>
+  <p>Apprends à dominer le marché avec les meilleurs</p>
+</header>
+
+<section class="section" aria-labelledby="formateurs">
+  <h2 id="formateurs">👨‍🏫 Vos formateurs</h2>
+  <div class="instructors">
+    <div class="instructor">
+      <img src="images/lek1ng.jpg" alt="Photo de Lek1ngXRP" />
+      <h3>Lek1ngXRP</h3>
+      <p>Expert XRP, stratège blockchain, 4 ans de terrain</p>
+    </div>
+    <div class="instructor">
+      <img src="images/squadir.jpg" alt="Photo de Squadir" />
+      <h3>Squadir</h3>
+      <p>Trader full-time, passionné d’analyse technique</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="offres">
+  <h2 id="offres">📦 Offres disponibles</h2>
+  <div class="offers">
+    <div class="offer">
+      <h3>Pack Débutant</h3>
+      <p>Comprendre les bases, wallet, sécurité, achats</p>
+      <div class="offer-duration">
+        <input type="radio" id="debutant-1mois" name="debutant-duration" value="1" checked />
+        <label for="debutant-1mois">1 mois</label>
+
+        <input type="radio" id="debutant-3mois" name="debutant-duration" value="3" />
+        <label for="debutant-3mois">3 mois</label>
+
+        <input type="radio" id="debutant-6mois" name="debutant-duration" value="6" />
+        <label for="debutant-6mois">6 mois</label>
+      </div>
+<div class="price" id="debutant-price">49€</div>
+      <button class="btn" onclick="goToPack('debutant')">Accéder</button>
+    </div>
+
+    <div class="offer">
+      <h3>Pack Pro</h3>
+      <p>Analyse technique, stratégie swing & day-trade</p>
+      <div class="offer-duration">
+        <input type="radio" id="pro-1mois" name="pro-duration" value="1" checked />
+        <label for="pro-1mois">1 mois</label>
+
+        <input type="radio" id="pro-3mois" name="pro-duration" value="3" />
+        <label for="pro-3mois">3 mois</label>
+
+        <input type="radio" id="pro-6mois" name="pro-duration" value="6" />
+        <label for="pro-6mois">6 mois</label>
+      </div>
+  <div class="price" id="pro-price">99€</div>
+      <button class="btn" onclick="goToPack('pro')">Accéder</button>
+    </div>
+
+    <div class="offer">
+      <h3>Pack Ultime + Coaching</h3>
+      <p>Accès VIP, signaux + 2 séances 1-1</p>
+      <div class="offer-duration">
+        <input type="radio" id="ultime-1mois" name="ultime-duration" value="1" checked />
+        <label for="ultime-1mois">1 mois</label>
+
+        <input type="radio" id="ultime-3mois" name="ultime-duration" value="3" />
+        <label for="ultime-3mois">3 mois</label>
+
+        <input type="radio" id="ultime-6mois" name="ultime-duration" value="6" />
+        <label for="ultime-6mois">6 mois</label>
+      </div>
+  <div class="price" id="ultime-price">199€</div>
+      <button class="btn" onclick="goToPack('ultime')">Accéder</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="temoignages">
+  <h2 id="temoignages">🗣️ Témoignages</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial">
+      <p>"J’ai triplé mon portefeuille en 2 mois. Merci !"</p>
+      <strong>— Mehdi L.</strong>
+    </div>
+    <div class="testimonial">
+      <p>"La formation est carrée, claire et surtout rentable !"</p>
+      <strong>— Camille B.</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Squadir m’a aidé à quitter mon job. Je vis du trading."</p>
+      <strong>— Zakaria T.</strong>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="compte-a-rebours">
+  <h2 id="compte-a-rebours">⏳ Offre limitée</h2>
+  <div class="countdown" id="countdown">Chargement...</div>
+</section>
+
+<section class="section" aria-labelledby="faq">
+  <h2 id="faq">❓ FAQ</h2>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">C’est pour qui cette formation ?</button>
+    <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-btn" hidden>Pour tous : débutants, curieux ou déjà investisseurs en crypto.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">Y a-t-il un suivi après l’achat ?</button>
+    <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-btn" hidden>Oui, vous avez accès à un Discord privé + possibilité de coaching 1-1.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">Quels moyens de paiement ?</button>
+    <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-btn" hidden>CB, PayPal, crypto (BTC, ETH, XRP).</div>
+  </div>
+</section>
+
+<section class="dcp-section" aria-labelledby="powered">
+  <h2 id="powered">🎯 Powered by DCPLab</h2>
+  <p>Ce projet est réalisé en collaboration avec <strong>DCPLab</strong>, l'incubateur d'idées et de projets digitaux pour créateurs de demain.</p>
+  <img class="dcp-logo" src="images/dcplab-logo.png" alt="Logo DCPLab" />
+</section>
+
+<footer>
+  © 2025 Lek1ngXRP x Squadir – Tous droits réservés.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
